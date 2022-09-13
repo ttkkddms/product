@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상품등록</title>
+</head>
+
+<body>
+<div class="product-wrap">
+  <h3>상품등록</h3>
+  <hr>
+  <form id="frm" action="" method="post" th:object="${form}">
+    <div>
+      <div>
+        <label for="">상품명</label>
+        <input type="text" th:field="*{pname}" th:class="${#fields.hasErrors('pname')} ? fieldError">
+      </div>
+      <div>
+        <label for="">수량</label>
+        <input type="text" th:field="*{count}">
+      </div>
+      <div>
+        <label for="">가격</label>
+        <input type="text" th:field="*{price}">
+      </div>
+      <button type="submit" id="addBtn">저장</button>
+      <button type="reset" >취소</button>
+      <button type="button" th:onclick="|location.href='@{/products}'|">목록</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
